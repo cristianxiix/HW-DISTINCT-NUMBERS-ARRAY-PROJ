@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <random>
 #include <string>
 
 
@@ -31,13 +30,14 @@ bool checkDistinct(std::vector<uint16_t>& v)
     if (isDistinct)
     {
         std::cout << "DEBUGGING: The sequence is distinct!" << std::endl;
+        std::cout << "****************" << std::endl;
         return true;
     }
     else
     {
         std::cout << "DEBUGGING: The sequence IS NOT distinct!" << std::endl;
+        std::cout << "****************" << std::endl;
         return false;
-
     }
 }
 void bubbleSort(std::vector<uint16_t>& v)
@@ -55,67 +55,67 @@ void bubbleSort(std::vector<uint16_t>& v)
                 v[j] = v[i];
                 v[i] = temp;
             }
-            else
-            {
-                continue;
-            }
+            continue;
         }
     }
+
+
+
+    //HERE FOR DEBUGGING PURPOSES
+    /*std::cout << "sorted inside: ";
+
+    for (int i = 0; i < v.size(); i++)
+    {
+        std::cout << v[i];
+    }*/
 }
 bool checkSuccessive(std::vector<uint16_t>& v)
 {
-    uint16_t distinctNumbersCount = 0;
+    uint16_t distinctNumbersCount = 1;
     uint16_t biggest = 0;
     bool isT = true;
     bubbleSort(v);
-    //1 2 8  9
-    for (int i = 0; i <= v.size(); i++)
+    
+    for (uint16_t i = 0; i < v.size(); i++)
     {
-        for (int j = i + 1; j < v.size(); j++)
+        for (uint16_t j = i + 1; j < v.size(); j++)
         {
-            if (v[i] == v[j] - 1)
+            if (v[j] == v[i] + 1)
             {
                 distinctNumbersCount++;
-                i++;
-
-
                 if (v[j] > biggest)
-                {
-                    biggest = v[i];
-                }
+                    biggest = v[j];
+                i++;
             }
-            else if (v[i] != v[j] -1)
+            else
             {
                 distinctNumbersCount++;
+                isT = false;
                 i++;
-
-
-                if (v[j] > biggest)
-                {
-                    biggest = v[i];
-                }
             }
-            
         }
-        if (i == v.size())
-            {
+        if (i == v.size() - 1)
             break;
-            }
     }
-    if (distinctNumbersCount != v.size())
+
+    if (isT)
     {
-        std::cout << "Cea mai mare valoare a secventei este: " << biggest << std::endl;
+        std::cout << "BIGGEST VALUE INSIDE SEQ: " << biggest << std::endl;
+        std::cout << "****************" << std::endl;
+
         return true;
     }
     else
     {
-        std::cout << "Suma valorilor distrincte este: " << distinctNumbersCount << std::endl;
+        std::cout << "AMOUNT OF DISTINCT NUMBERS INSIDE SEQ: " << distinctNumbersCount << " ELEMENTS" << std::endl;
+        std::cout << "****************" << std::endl;
+
         return false;
     }
 }
 void LogSeq(std::vector<uint16_t>& v)
 {
-    std::cout << "Secventa selectata: ";
+    std::cout << "SELECTED SEQUENCE: ";
     for (int i = 0; i < v.size(); i++)
     {
         std::cout << v[i] << ' ';
@@ -139,7 +139,8 @@ int main()
     {
         std::cout << x << ' ';
     }
-    std::cout << std::endl;
+    std::cout << "****************" << std::endl;
+
     int k = 0;
     int j = 0;
     std::cout << "Input the starting index: (NOTE STARTING FROM INDEX 0!)" << std::endl;
@@ -148,7 +149,8 @@ int main()
     std::cin >> k;
 
     std::vector<uint16_t> testVector;
-    std::cout << std::endl;
+    std::cout << "****************" << std::endl;
+
 
     int i = j;
     while (i <= k)
@@ -163,7 +165,11 @@ int main()
     {
         if (checkSuccessive(testVector))
         {
-            std::cout << "Secventa data este COOL!";
+            std::cout << "The Sequence is COOL!";
+        }
+        else
+        {
+            std::cout << "The Sequence is NOT COOL!";
         }
        
     }
