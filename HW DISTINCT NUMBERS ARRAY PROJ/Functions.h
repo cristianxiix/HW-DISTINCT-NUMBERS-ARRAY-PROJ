@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
+typedef uint16_t int16;
 
-bool checkDistinct(std::vector<uint16_t>& v);
-void bubbleSort(std::vector<uint16_t>& v);
-bool checkSuccessive(std::vector<uint16_t>& v);
-void LogSeq(std::vector<uint16_t>& v);
+bool checkDistinct(std::vector<int16>& v);
+void bubbleSort(std::vector<int16>& v);
+bool checkSuccessive(std::vector<int16>& v);
+void LogSeq(std::vector<int16>& v);

@@ -2,7 +2,7 @@
 #include "Functions.h"
 
 
-bool checkDistinct(std::vector<uint16_t>& v)
+bool checkDistinct(std::vector<int16>& v)
 {
     bool isDistinct = true;
     for (int i = 0; i < v.size(); i++)
@@ -16,8 +16,7 @@ bool checkDistinct(std::vector<uint16_t>& v)
             }
             else
             {
-                isDistinct = false;
-                break;
+               return isDistinct = false;
             }
         }
 
@@ -36,7 +35,7 @@ bool checkDistinct(std::vector<uint16_t>& v)
         return false;
     }
 }
-void bubbleSort(std::vector<uint16_t>& v)
+void bubbleSort(std::vector<int16>& v)
 {
     for (int i = 0; i < v.size(); i++)
     {
@@ -65,17 +64,17 @@ void bubbleSort(std::vector<uint16_t>& v)
         std::cout << v[i];
     }*/
 }
-bool checkSuccessive(std::vector<uint16_t>& v)
+bool checkSuccessive(std::vector<int16>& v)
 {
-    uint16_t distinctNumbersCount = 1;
-    uint16_t biggest = 0;
+    int16 distinctNumbersCount = 1;
+    int16 biggest = 0;
     bool isT = true;
     bubbleSort(v);
 
-    for (uint16_t i = 0; i < v.size(); i++)
+    for (int16 i = 0; i < v.size(); i++)
     {
-        for (uint16_t j = i + 1; j < v.size(); j++)
-        {
+        for (int16 j = i + 1; j < v.size(); j++)
+        {z
             if (v[j] == v[i] + 1)
             {
                 distinctNumbersCount++;
@@ -109,7 +108,7 @@ bool checkSuccessive(std::vector<uint16_t>& v)
         return false;
     }
 }
-void LogSeq(std::vector<uint16_t>& v)
+void LogSeq(std::vector<int16>& v)
 {
     std::cout << "SELECTED SEQUENCE: ";
     for (int i = 0; i < v.size(); i++)

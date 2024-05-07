@@ -3,8 +3,8 @@
 int main()
 {
 
-   // uint16_t arr[8] = {3, 4, 6, 5, 9, 1, 6, 7};
-    uint16_t arr[8] = { 7, 1, 3, 2, 5, 6, 7, 8 };
+   // int16 arr[8] = {3, 4, 6, 5, 9, 1, 6, 7};
+    int16 arr[8] = { 7, 1, 3, 2, 5, 6, 7, 8 };
 
     std::cout << "Main sequence: ";
     for (auto x : arr)
@@ -21,7 +21,7 @@ int main()
         std::cout << "Input the element K:" << std::endl;
         std::cin >> k;
     
-        std::vector<uint16_t> testVector;
+        std::vector<int16> testVector;
         std::cout << "****************" << std::endl;
 
         int i = j;
